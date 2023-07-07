@@ -96,8 +96,10 @@
 	<p style="font-size:11px; font-style: italic">Sukasari - Bungursari <br> Kota Tasikmalaya</p>
 	</center>
     <p class="info">No Invoice: <b><span style="font-style: italic"; class="no-invoice"></b></span></p>
-    <p style="font-style: italic"; class="info1">Tanggal: <span class="tanggal"></span><br> Jam: <span class="jam"></span></p>
-
+<div class="baris">
+        <div class="item">Periode</div>
+        <div style="font-style: italic"; class="item"><span class="periode"></span></div>
+      </div>
     <div class="konten">
       <div class="baris">
         <div class="item">Harga Item</div>
@@ -120,6 +122,7 @@
         <div class="total">Total</div>
         <div style="font-style: italic"; class="total">Rp:<span class="total-harga"></span></div>
       </div>
+	  <p style="font-style: italic"; class="info1">Tanggal: <span class="tanggal"></span><br> Jam: <span class="jam"></span></p>
     <div class="invoice"><p style="font-style: italic">Terima kasih telah menggunakan layanan kami</p><b>Digital Media Net27</b></div>
   </div>
   
@@ -132,7 +135,8 @@
     var total = localStorage.getItem('total');
     var tanggal = localStorage.getItem('tanggal');
     var jam = localStorage.getItem('jam');
-    
+    var periode = localStorage.getItem('periode');
+	
     var noInvoiceElem = document.querySelector('.no-invoice');
     var hargaElem = document.querySelector('.harga');
     var ppnElem = document.querySelector('.ppn');
@@ -141,7 +145,8 @@
     var totalElem = document.querySelector('.total-harga');
     var tanggalElem = document.querySelector('.tanggal');
     var jamElem = document.querySelector('.jam');
-    
+    var periodeElem = document.querySelector('.periode');
+	
     if (noInvoiceElem && hargaElem && ppnElem && diskonElem && biayaAdminElem && totalElem && tanggalElem && jamElem) {
       noInvoiceElem.textContent = noInvoice;
       hargaElem.textContent = harga;
@@ -151,6 +156,7 @@
       totalElem.textContent = total;
       tanggalElem.textContent = tanggal;
       jamElem.textContent = jam;
+	  periodeElem.textContent = periode;
     }
   </script>
 </body>
