@@ -8,7 +8,7 @@
     }
     
     .struk {
-      max-width: 170px;
+      max-width: 300px;
       margin: 0 auto;
       padding: 10px;
       background: #FFF;
@@ -30,9 +30,17 @@
       font-size: 12px;
       margin-bottom: 10px;
     }
+	
+	.info1 {
+      text-align: center;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
     
     .konten {
       margin-top: 10px;
+	    border-top: 1px dashed #000;
+  border-bottom: 1px dashed #000;
     }
     
     .baris {
@@ -69,39 +77,50 @@
       font-size: 12px;
       margin-top: 5px;
     }
+	
+.info {
+  text-align: center;
+  font-size: 12px;
+  margin-bottom: 10px;
+  border-top: 1px dashed #000;
+  border-bottom: 1px dashed #000;
+}
   </style>
 </head>
 <body>
   <div class="struk">
     <div class="logo">
-      <img src="https://medianet27.github.io/LogoT.png" alt="Logo">
+      <img src="logoT.png" alt="Logo">
     </div>
 	<center>
-	<p>Sukasari - Bungursari <br> Kota Tasikmalaya</p>
+	<p style="font-size:11px; font-style: italic">Sukasari - Bungursari <br> Kota Tasikmalaya</p>
 	</center>
-    <p class="info">No Invoice: <b><span class="no-invoice"></b></span></p>
-    <p class="info">Tanggal: <span class="tanggal"></span><br> Jam: <span class="jam"></span></p>
+    <p class="info">Invoice: <b><span style="font-style: italic"; class="no-invoice"></b></span></p>
+    <p style="font-style: italic"; class="info1">Tanggal: <span class="tanggal"></span><br> Jam: <span class="jam"></span></p>
 
     <div class="konten">
       <div class="baris">
         <div class="item">Harga Item</div>
-        <div class="item">Rp<span class="harga"></span></div>
+        <div style="font-style: italic"; class="item">Rp<span class="harga"></span></div>
       </div>
       <div class="baris">
         <div class="item">PPN</div>
-        <div class="item"><span class="ppn"></span>%</div>
+        <div style="font-style: italic"; class="item"><span class="ppn"></span>%</div>
       </div>
       <div class="baris">
         <div class="item">Diskon</div>
-        <div class="item"><span class="diskon"></span>%</div>
+        <div style="font-style: italic"; class="item"><span class="diskon"></span>%</div>
       </div>
       <div class="baris">
         <div class="item">Biaya Admin</div>
-        <div class="item">Rp<span class="biaya-admin"></span></div>
+        <div style="font-style: italic"; class="item">Rp<span class="biaya-admin"></span></div>
       </div>
     </div>
-    <div class="total">Total:<br> Rp<span class="total-harga"></span></div>
-    <div class="invoice"><p>Terima kasih telah menggunakan layanan kami</p><p>Digital Media Net27</p></div>
+	<div class="baris">
+        <div class="total">Total</div>
+        <div style="font-style: italic"; class="total">Rp:<span class="total-harga"></span></div>
+      </div>
+    <div class="invoice"><p style="font-style: italic">Terima kasih telah menggunakan layanan kami</p><b>Digital Media Net27</b></div>
   </div>
   
   <script>
