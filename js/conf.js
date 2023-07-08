@@ -43,7 +43,7 @@ function hitungTotal() {
           total = harga + (harga * ppn / 100) - (harga * diskon / 100) + biayaAdmin;
         
           localStorage.setItem('no_invoice', noInvoice);
-          localStorage.setItem('harga', harga);
+          localStorage.setItem('harga', formatCurrency(harga));
           localStorage.setItem('ppn', ppn);
           localStorage.setItem('diskon', diskon);
           localStorage.setItem('biaya_admin', biayaAdmin);
