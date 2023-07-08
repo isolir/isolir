@@ -3,7 +3,7 @@
 <head>
   <title>Input Harga</title>
   <style>
-  body {
+    body {
       font-family: monospace;
       text-align: center;
     }
@@ -33,22 +33,31 @@
       border: none;
       cursor: pointer;
     }
-	</style>
+    
+    .error-message {
+      color: red;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+  </style>
 </head>
 <body>
-  <h1>Masukkan Harga</h1>
+  <h1>Masukkan Sesuai Billing</h1>
   <div class="input-field">
     <label for="no_invoice">No Invoice:</label>
     <input type="text" id="no_invoice" placeholder="Masukkan No Invoice">
   </div>
+  <span id="no_invoice_error" class="error-message"></span>
   <div class="input-field">
     <label for="periode">Periode:</label>
     <input type="text" id="periode" placeholder="Masukkan periode">
   </div>
+  <span id="periode_error" class="error-message"></span>
   <div class="input-field">
     <label for="harga">Harga:</label>
     <input type="text" id="harga" placeholder="Masukkan harga">
   </div>
+    <span id="harga_error" class="error-message"></span>
   <div class="input-field">
     <label for="ppn">PPN (%):</label>
     <input type="text" id="ppn" placeholder="Masukkan PPN" value="0">
@@ -66,35 +75,62 @@
   </div>
   
   <script>
-  function hitungTotal() {
+    function hitungTotal() {
       var noInvoice = document.getElementById('no_invoice').value;
+      var periode = document.getElementById('periode').value;
       var harga = parseFloat(document.getElementById('harga').value);
       var ppn = parseFloat(document.getElementById('ppn').value);
       var diskon = parseFloat(document.getElementById('diskon').value);
       var biayaAdmin = parseFloat(document.getElementById('biaya_admin').value);
-      var periode = document.getElementById('periode').value;
-      
-      var total = harga + (harga * ppn / 100) - (harga * diskon / 100) + biayaAdmin;
       
       var currentDate = new Date();
       var tanggal = currentDate.toLocaleDateString();
       var jam = currentDate.toLocaleTimeString();
       
-      localStorage.setItem('no_invoice', noInvoice);
-      localStorage.setItem('harga', formatCurrency(harga));
-      localStorage.setItem('ppn', ppn);
-      localStorage.setItem('diskon', diskon);
-      localStorage.setItem('biaya_admin', biayaAdmin);
-      localStorage.setItem('total', formatCurrency(total));
-      localStorage.setItem('tanggal', tanggal);
-      localStorage.setItem('jam', jam);
-      localStorage.setItem('periode', periode);
+      var total;
+      var valid = true;
       
-      window.location.href = 'struk.html';
+      if (noInvoice === "") {
+        document.getElementById('no_invoice_error').textContent = "No Invoice harus diisi";
+        valid = false;
+      } else {
+        document.getElementById('no_invoice_error').textContent = "";
+      }
+      
+      if (periode === "") {
+        document.getElementById('periode_error').textContent = "Periode harus diisi";
+        valid = false;
+      } else {
+        document.getElementById('periode_error').textContent = "";
+      }
+      
+      if (isNaN(harga) || harga <= 0) {
+        document.getElementById('harga_error').textContent = "Harga harus diisi dengan angka yang valid";
+        valid = false;
+      } else {
+        document.getElementById('harga_error').textContent = "";
+      }
+      
+      if (valid) {
+        total = harga + (harga * ppn / 100) - (harga * diskon / 100) + biayaAdmin;
+        
+        localStorage.setItem('no_invoice', noInvoice);
+        localStorage.setItem('harga', formatCurrency(harga));
+        localStorage.setItem('ppn', ppn);
+        localStorage.setItem('diskon', diskon);
+        localStorage.setItem('biaya_admin', biayaAdmin);
+        localStorage.setItem('total', formatCurrency(total));
+        localStorage.setItem('tanggal', tanggal);
+        localStorage.setItem('jam', jam);
+        localStorage.setItem('periode', periode);
+        
+        window.location.href = 'struk.html';
+      }
     }
-function formatCurrency(value) {
+    
+    function formatCurrency(value) {
       return value.toLocaleString('id-ID');
     }
-	</script>
+  </script>
 </body>
 </html>
