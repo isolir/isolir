@@ -2,8 +2,38 @@
 <html>
 <head>
   <title>Input Harga</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script type="text/javascript" src="js/config.js"></script>
+  <style>
+  body {
+      font-family: monospace;
+      text-align: center;
+    }
+    
+    h1 {
+      margin-top: 50px;
+    }
+    
+    .input-field {
+      margin-top: 20px;
+    }
+    
+    .input-field label {
+      display: block;
+      font-weight: bold;
+    }
+    
+    .input-field input[type="text"] {
+      padding: 5px;
+    }
+    
+    .input-field button {
+      padding: 8px 20px;
+      margin-top: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+	</style>
 </head>
 <body>
   <h1>Masukkan Harga</h1>
@@ -34,5 +64,34 @@
   <div class="input-field">
     <button onclick="hitungTotal()">Hitung Total</button>
   </div>
+  
+  <script>
+  function hitungTotal() {
+      var noInvoice = document.getElementById('no_invoice').value;
+      var harga = parseFloat(document.getElementById('harga').value);
+      var ppn = parseFloat(document.getElementById('ppn').value);
+      var diskon = parseFloat(document.getElementById('diskon').value);
+      var biayaAdmin = parseFloat(document.getElementById('biaya_admin').value);
+      var periode = document.getElementById('periode').value;
+      
+      var total = harga + (harga * ppn / 100) - (harga * diskon / 100) + biayaAdmin;
+      
+      var currentDate = new Date();
+      var tanggal = currentDate.toLocaleDateString();
+      var jam = currentDate.toLocaleTimeString();
+      
+      localStorage.setItem('no_invoice', noInvoice);
+      localStorage.setItem('harga', harga);
+      localStorage.setItem('ppn', ppn);
+      localStorage.setItem('diskon', diskon);
+      localStorage.setItem('biaya_admin', biayaAdmin);
+      localStorage.setItem('total', total.toFixed(0));
+      localStorage.setItem('tanggal', tanggal);
+      localStorage.setItem('jam', jam);
+      localStorage.setItem('periode', periode);
+      
+      window.location.href = 'struk.html';
+    }
+	</script>
 </body>
 </html>
