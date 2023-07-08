@@ -24,35 +24,3 @@ function hitungTotal() {
       
       window.location.href = 'struk.html';
     }
-	
-var noInvoice = localStorage.getItem('no_invoice');
-    var harga = localStorage.getItem('harga');
-    var ppn = localStorage.getItem('ppn');
-    var diskon = localStorage.getItem('diskon');
-    var biayaAdmin = localStorage.getItem('biaya_admin');
-    var total = localStorage.getItem('total');
-    var tanggal = localStorage.getItem('tanggal');
-    var jam = localStorage.getItem('jam');
-    var periode = localStorage.getItem('periode');
-	
-    var noInvoiceElem = document.querySelector('.no-invoice');
-    var hargaElem = document.querySelector('.harga');
-    var ppnElem = document.querySelector('.ppn');
-    var diskonElem = document.querySelector('.diskon');
-    var biayaAdminElem = document.querySelector('.biaya-admin');
-    var totalElem = document.querySelector('.total-harga');
-    var tanggalElem = document.querySelector('.tanggal');
-    var jamElem = document.querySelector('.jam');
-    var periodeElem = document.querySelector('.periode');
-	
-    if (noInvoiceElem && hargaElem && ppnElem && diskonElem && biayaAdminElem && totalElem && tanggalElem && jamElem) {
-      noInvoiceElem.textContent = noInvoice;
-      hargaElem.textContent = harga;
-      ppnElem.textContent = ppn;
-      diskonElem.textContent = diskon;
-      biayaAdminElem.textContent = biayaAdmin;
-      totalElem.textContent = total;
-      tanggalElem.textContent = tanggal;
-      jamElem.textContent = jam;
-	  periodeElem.textContent = periode;
-    }
