@@ -2,90 +2,8 @@
 <html>
 <head>
   <title>Struk Printer Thermal</title>
-  <style>
-    body {
-      font-family: monospace;
-    }
-    
-    .struk {
-      max-width: 300px;
-      margin: 0 auto;
-      padding: 10px;
-      background: #FFF;
-      border: 1px solid #000;
-    }
-    
-    .logo {
-      text-align: center;
-      margin-bottom: 10px;
-    }
-    
-	.logo img {
-	  width: 100px; /* Ganti dengan ukuran yang diinginkan */
-	  height: auto; /* Sesuaikan dengan aspek rasio gambar */
-	}
-    
-    .info {
-      text-align: center;
-      font-size: 12px;
-      margin-bottom: 10px;
-    }
-	
-	.info1 {
-      text-align: center;
-      font-size: 12px;
-      margin-bottom: 10px;
-    }
-    
-    .konten {
-      margin-top: 10px;
-	    border-top: 1px dashed #000;
-  border-bottom: 1px dashed #000;
-    }
-    
-    .baris {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 5px;
-    }
-    
-    .baris .item {
-      flex: 1;
-    }
-    
-    .baris .item:nth-child(2) {
-      text-align: right;
-    }
-    
-    .baris .item:nth-child(2) .harga {
-      font-weight: bold;
-    }
-    
-    .baris .item:nth-child(2) .jumlah {
-      margin-left: 5px;
-    }
-    
-    .total {
-      margin-top: 10px;
-      text-align: right;
-      font-weight: bold;
-      font-size: 17px;
-    }
-    
-    .invoice {
-      text-align: center;
-      font-size: 12px;
-      margin-top: 5px;
-    }
-	
-.info {
-  text-align: center;
-  font-size: 12px;
-  margin-bottom: 10px;
-  border-top: 1px dashed #000;
-  border-bottom: 1px dashed #000;
-}
-  </style>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="text/javascript" src="js/config.js"></script>
 </head>
 <body>
   <div class="struk">
@@ -125,39 +43,5 @@
 	  <p style="font-style: italic"; class="info1">Tanggal: <span class="tanggal"></span><br> Jam: <span class="jam"></span></p>
     <div class="invoice"><p style="font-style: italic">Terima kasih telah menggunakan layanan kami</p><b>Digital Media Net27</b></div>
   </div>
-  
-  <script>
-    var noInvoice = localStorage.getItem('no_invoice');
-    var harga = localStorage.getItem('harga');
-    var ppn = localStorage.getItem('ppn');
-    var diskon = localStorage.getItem('diskon');
-    var biayaAdmin = localStorage.getItem('biaya_admin');
-    var total = localStorage.getItem('total');
-    var tanggal = localStorage.getItem('tanggal');
-    var jam = localStorage.getItem('jam');
-    var periode = localStorage.getItem('periode');
-	
-    var noInvoiceElem = document.querySelector('.no-invoice');
-    var hargaElem = document.querySelector('.harga');
-    var ppnElem = document.querySelector('.ppn');
-    var diskonElem = document.querySelector('.diskon');
-    var biayaAdminElem = document.querySelector('.biaya-admin');
-    var totalElem = document.querySelector('.total-harga');
-    var tanggalElem = document.querySelector('.tanggal');
-    var jamElem = document.querySelector('.jam');
-    var periodeElem = document.querySelector('.periode');
-	
-    if (noInvoiceElem && hargaElem && ppnElem && diskonElem && biayaAdminElem && totalElem && tanggalElem && jamElem) {
-      noInvoiceElem.textContent = noInvoice;
-      hargaElem.textContent = harga;
-      ppnElem.textContent = ppn;
-      diskonElem.textContent = diskon;
-      biayaAdminElem.textContent = biayaAdmin;
-      totalElem.textContent = total;
-      tanggalElem.textContent = tanggal;
-      jamElem.textContent = jam;
-	  periodeElem.textContent = periode;
-    }
-  </script>
 </body>
 </html>
