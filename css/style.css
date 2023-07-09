@@ -33,7 +33,24 @@
       border: none;
       cursor: pointer;
     }
-    
+
+button {
+	padding: 7px 35px;
+	background-color: red;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+	cursor: pointer;
+	}
+	
+.input-field button:hover {
+  background-color: black;
+}
+
+button:hover {
+  background-color: purple;
+}
     .error-message {
       color: red;
       font-size: 12px;
