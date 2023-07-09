@@ -71,5 +71,13 @@ button:hover {
   </div>
   
   <script src="js/conf.js"></script>
+<script>
+  // Menangkap tombol Enter yang ditekan pada elemen input
+document.addEventListener('keypress', function(event) {
+  if (event.key === 'Enter') {
+    hitungTotal();
+  }
+});
+</script>
 </body>
 </html>
