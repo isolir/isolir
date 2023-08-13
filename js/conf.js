@@ -69,7 +69,7 @@ function hitungTotal() {
       // Ganti dengan password yang sesuai untuk masing-masing admin
       if (admin === 'admin1' && password === 'KasirHilmi') {
         return true;
-      } else if (admin === 'admin2' && password === 'SuperAdmin') {
+      } else if (admin === 'admin2' && password === '0123') {
         return true;
       } else {
         return false;
