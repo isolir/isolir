@@ -116,5 +116,5 @@ function hitungTotal() {
       tanggalElem.textContent = tanggal;
       jamElem.textContent = jam;
       periodeElem.textContent = periode;
-      adminElem.textContent = admin === 'admin1' ? 'Hilmi' : 'Digital Media';
+      adminElem.textContent = admin === 'admin1' ? 'Hilmi' : 'dgm';
     }
